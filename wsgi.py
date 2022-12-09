@@ -17,7 +17,7 @@ def create_prediction():
     body = json.loads(data)
     return jsonify(predict(body))
 
-@application.route('/test', methods=['POST'])
+@application.route('/test', methods=['GET', 'POST'])
 def test_connection():
     data = request.data or '{}'
     body = json.loads(data)
