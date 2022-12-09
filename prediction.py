@@ -8,9 +8,12 @@ detector = saved_model.signatures['default']
 
 def predict(body):
     base64img = body.get('image')
-    img_bytes = base64.decodebytes(base64img.encode())
-    detections = detect(img_bytes)
-    cleaned = clean_detections(detections)
+    
+    if base64img is not None: 
+        img_bytes = base64.decodebytes(base64img.encode())
+        detections = detect(img_bytes)
+        cleaned = clean_detections(detections)
+    
 
     return { 'detections': cleaned }
 

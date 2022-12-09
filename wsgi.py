@@ -15,6 +15,7 @@ def status():
 def create_prediction():
     data = request.data or '{}'
     body = json.loads(data)
+    print(body)
     return jsonify(predict(body))
 
 @application.route('/test', methods=['GET', 'POST'])
